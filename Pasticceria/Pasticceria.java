@@ -39,7 +39,26 @@ public class Pasticceria {
         // Scanner per l'input dell'utente
         Scanner scanner = new Scanner(System.in);
 
-         // Chiedo all'utente di scegliere un elemento da ciascuna lista
+        System.out.println("Scegli una delle seguenti opzioni:");
+        System.out.println("1. scegli tutto");
+        System.out.println("2. randomizza");
+
+        int scelta = 0;
+        for (int i = 0; i < 1; i++) {
+            System.out.print("Scelta: ");
+            scelta = scanner.nextInt();
+            
+            if (scelta == 1 || scelta == 2) {
+                break;
+            } else {
+                System.out.println("Inserisci un numero valido.");
+                i--; // chiede di scegliere di nuovo
+            }
+        }
+
+        if (scelta == 1) {
+            System.out.println("Hai scelto l'Opzione 1.");
+             // Chiedo all'utente di scegliere un elemento da ciascuna lista
          System.out.println("Scegli un elemento dalla lista delle basi (inserisci l'indice):");
          int indiceBasi = scanner.nextInt();
          System.out.println("Scegli un elemento dalla lista dei ripieni (inserisci l'indice):");
@@ -55,15 +74,14 @@ public class Pasticceria {
          System.out.println("Ripieno: " + ripieni.get(indiceRipieni));
          System.out.println("Frutta: " + frutta.get(indiceFrutta));
          System.out.println("Decorazione: " + decorazioni.get(indiceDecorazioni));
- 
 
+        } else if (scelta == 2) {
+            System.out.println("Hai scelto l'Opzione 2.");
+            // Randomizzazione
+        Random random = new Random();
         // Chiedo all'utente quale tipo di randomizzazione vuole
         System.out.println("Desideri ottenere ingredienti casuali da tutte le liste (1) o solo da due di esse (2)?");
         int sceltaRandomizzazione = scanner.nextInt();
-
-        // Randomizzazione
-        Random random = new Random();
-
         switch (sceltaRandomizzazione) {
             case 1:
                 System.out.println("Ingrediente casuale dalla lista delle basi: " + basi.get(random.nextInt(basi.size())));
@@ -98,6 +116,7 @@ public class Pasticceria {
         default:
             System.out.println("Scelta non valida.");
         }
+        }     
 
     }
 }
