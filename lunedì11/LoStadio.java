@@ -1,30 +1,52 @@
 package lunedì11;
 
 import java.util.Random;
-
+import java.util.Scanner;
 
 public class LoStadio {
     public static void main(String[] args) {
-        // id iniziale
-        int id = 0;
-        // numero totale di persone
-        int totalePersone = 0;
         Random random = new Random();
-        int weekend = 0;
-        
-        // Simuliamo la presenza di personein 10 weekend
-        do {
-            int personePerWeekend = random.nextInt(100); // Genera un numero casuale di persone tra 1 e 100
-            System.out.println("Weekend " + weekend + ": " + personePerWeekend + " persone");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Inserisci il numero casuale di weekend da 0 a 10: ");
+        int weekend = scanner.nextInt();
 
-            //permette la somma di persone totali per tutti i weekend
-            totalePersone += personePerWeekend;
-            weekend++; //contatore
-        } while (weekend <= 10);
-        
-        // Stampiamo il risultato
-        System.out.println("Numero totale di persone in 10 weekend: " + totalePersone);
+        int totalePersone = 0;
+        int totaleIncasso = 0;
+
+        // Simula la presenza di persone in 10 weekend
+        while (weekend > 0) {
+            int personeWeekend = random.nextInt(100) + 1; // Genera un numero casuale di persone tra 1 e 100
+            totalePersone += personeWeekend;
+            totaleIncasso += personeWeekend * 20; //prezzo del biglietto 20$
+            weekend--;
+        }
+
+        // Menu delle opzioni
+        System.out.println("Scegli un'opzione:");
+        System.out.println("1. Minimo spettatori");
+        System.out.println("2. Massimo spettatori");
+        System.out.println("3. Massimo incasso");
+        System.out.println("4. Minimo incasso");
+        System.out.print("Scelta: ");
+        int scelta = scanner.nextInt();
+
+        // Calcola e stampa dei risultati in base alla scelta
+        switch (scelta) {
+            case 1:
+                System.out.println("Minimo numero di spettatori: " + totalePersone);
+                break;
+            case 2:
+                System.out.println("Massimo numero di spettatori: " + totalePersone);
+                break;
+            case 3:
+                System.out.println("Massimo incasso: " + totaleIncasso + " euro");
+                break;
+            case 4:
+                System.out.println("Minimo incasso: " + totaleIncasso + " euro");
+                break;
+            default:
+                System.out.println("Scelta non valida.");
+        }
     }
 }
-
 
