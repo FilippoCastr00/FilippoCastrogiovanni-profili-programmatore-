@@ -1,48 +1,82 @@
 package lunedì11;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class LoStadio {
     public static void main(String[] args) {
-        Random random = new Random();
+        Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Inserisci il numero casuale di weekend da 0 a 10: ");
-        int weekend = scanner.nextInt();
+        int numeroWeekend = scanner.nextInt();
 
-        int totalePersone = 0;
-        int totaleIncasso = 0;
+        ArrayList<Integer> sabato = new ArrayList<>();
+        ArrayList<Integer> domenica = new ArrayList<>();
+        ArrayList<Integer> id = new ArrayList<>();
 
-        // Simula la presenza di persone in 10 weekend
-        while (weekend > 0) {
-            int personeWeekend = random.nextInt(100) + 1; // Genera un numero casuale di persone tra 1 e 100
-            totalePersone += personeWeekend;
-            totaleIncasso += personeWeekend * 20; //prezzo del biglietto 20$
-            weekend--;
+        // Simulo la presenza di persone sia di sabato che di domenica
+        int counter = 0;
+        while (counter < numeroWeekend) {
+            int personeSabato = rand.nextInt(100) + 1; // Genera un numero casuale di persone per sabato tra 1 e 100
+            int personeDomenica = rand.nextInt(100) + 1; // Genera un numero casuale di persone per domenica tra 1 e 100
+            
+            // Popoliamo gli ArrayList
+            sabato.add(personeSabato);
+            domenica.add(personeDomenica);
+            id.add(counter + 1);
+            counter++;
         }
 
         // Menu delle opzioni
         System.out.println("Scegli un'opzione:");
-        System.out.println("1. Minimo spettatori");
-        System.out.println("2. Massimo spettatori");
+        System.out.println("1. Minimo numero di spettatori");
+        System.out.println("2. Massimo numero di spettatori");
         System.out.println("3. Massimo incasso");
         System.out.println("4. Minimo incasso");
         System.out.print("Scelta: ");
         int scelta = scanner.nextInt();
 
-        // Calcola e stampa dei risultati in base alla scelta
+        // Calcolo e stampo dei risultati in base alla scelta dell'utente
         switch (scelta) {
             case 1:
-                System.out.println("Minimo numero di spettatori: " + totalePersone);
+                int minSpettatori = Integer.MIN_VALUE;
+                for (int spettatori : sabato) {
+                    if (spettatori < minSpettatori) {
+                        minSpettatori = spettatori;
+                    }
+                }
+                System.out.println("Minimo numero di spettatori: " + minSpettatori);
                 break;
             case 2:
-                System.out.println("Massimo numero di spettatori: " + totalePersone);
+                int maxSpettatori = Integer.MAX_VALUE;
+                for (int spettatori : sabato) {
+                    if (spettatori > maxSpettatori) {
+                        maxSpettatori = spettatori;
+                    }
+                }
+                System.out.println("Massimo numero di spettatori: " + maxSpettatori);
                 break;
             case 3:
-                System.out.println("Massimo incasso: " + totaleIncasso + " euro");
+                int maxIncasso = 0;
+                for (int i = 0; i < sabato.size(); i++) {
+                    int incasso = (sabato.get(i) + domenica.get(i)) * 10; // Assumiamo che il prezzo del biglietto sia 10 euro
+                    if (incasso > maxIncasso) {
+                        maxIncasso = incasso;
+                    }
+                }
+                System.out.println("Massimo incasso: " + maxIncasso + " euro");
                 break;
             case 4:
-                System.out.println("Minimo incasso: " + totaleIncasso + " euro");
+                int minIncasso = Integer.MAX_VALUE;
+                for (int i = 0; i < sabato.size(); i++) {
+                    int incasso = (sabato.get(i) + domenica.get(i)) * 10; // Assumiamo che il prezzo del biglietto sia 10 euro
+                    if (incasso < minIncasso) {
+                        minIncasso = incasso;
+                    }
+                }
+                System.out.println("Minimo incasso: " + minIncasso + " euro");
                 break;
             default:
                 System.out.println("Scelta non valida.");
