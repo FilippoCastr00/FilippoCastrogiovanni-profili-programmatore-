@@ -1,0 +1,13 @@
+Ho pensato di creare 4 ArrayList (basi, ripieni, frutta, decorazioni),
+Ho inserito 3 elementi per lista. Poi ho scelto di far apparire una stampa iniziale quando parte il programma,
+così l'utente può visualizzare tutte le opzioni.
+
+Creo uno scanner per ricevere l'input dall'utente 
+chiedo all'utente di scegliere tramite indicizzazione 0-3 un elemento per ogni lista 
+e stampo il dolce finale.
+
+Per la randomizzazione ho creato un oggetto di tipo Random e l'ho utilizzato all'interno delle liste,
+in questo modo grazie ai metodi get() e size() il programma randomizza un elemento per lista restituendo
+poi una stampa con la ricetta finale. Aggiungo in seconda battuta una scelta di randomizzazione a discrezione
+dello user, che può scegliere tra randomizzazione completa o di soli due elementi di due liste diverse,
+per facilitare la scelta inserisco anche l'indicizzazione da 0 a 3 (tot 5, di cui 4 in ottica utente).  
