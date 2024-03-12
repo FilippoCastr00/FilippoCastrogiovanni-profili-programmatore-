@@ -39,20 +39,7 @@ public class PiattoSpeciale {
         System.out.println("Ingrediente 2: " + ingrediente2);
         System.out.println("Ingrediente 3: " + ingrediente3);
     }
-    //metodo per stampare la scelta del pane
-    static void menuFinal(){
-        System.out.println("Scegli il tipo di pane (Semola/Cereali)");
-     }
-     //metodo per stampare la scelta ingredienti
-    static void menuPublic(){
-         System.out.println("Scegli ingredienti: ");
-         System.out.println("1. Prosciutto");
-         System.out.println("2. Salsiccia");
-         System.out.println("3. Mozzarella");
- 
- 
-     }
-
+   
     // Metodo main per testare la classe
     public static void main(String[] args) {
         PiattoSpeciale panini = new PiattoSpeciale("Panino Vegetariano", "Panino con Prosciutto", "Insalata", "Pomodoro", "Formaggio");
