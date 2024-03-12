@@ -5,14 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LoStadio {
-    //metodo per il menu
     static void menu(){
-        System.out.println("Scegli un'opzione:");
-        System.out.println("1. Minimo numero di spettatori");
-        System.out.println("2. Massimo numero di spettatori");
-        System.out.println("3. Massimo incasso");
-        System.out.println("4. Minimo incasso");
-        System.out.print("Scelta: ");
+     System.out.println("Scegli un'opzione:");
+     System.out.println("1. Minimo numero di spettatori");
+     System.out.println("2. Massimo numero di spettatori");
+     System.out.println("3. Massimo incasso");
+     System.out.println("4. Minimo incasso");
+     System.out.print("Scelta: ");
     }
     public static void main(String[] args) {
         Random rand = new Random();
@@ -21,7 +20,7 @@ public class LoStadio {
         System.out.print("Inserisci il numero casuale di weekend da 0 a 10: ");
         int numeroWeekend = scanner.nextInt();
         menu();
-        //creo gli ArrayList 
+
         ArrayList<Integer> sabato = new ArrayList<>();
         ArrayList<Integer> domenica = new ArrayList<>();
         ArrayList<Integer> id = new ArrayList<>();
@@ -32,17 +31,14 @@ public class LoStadio {
             int personeSabato = rand.nextInt(100) + 1; // Genera un numero casuale di persone per sabato tra 1 e 100
             int personeDomenica = rand.nextInt(100) + 1; // Genera un numero casuale di persone per domenica tra 1 e 100
             
-            // Riempio gli ArrayList
+            // Popoliamo gli ArrayList
             sabato.add(personeSabato);
             domenica.add(personeDomenica);
             id.add(counter + 1);
             counter++;
         }
-
-        
-        
+      
         int scelta = scanner.nextInt();
-
         // Calcolo e stampo dei risultati in base alla scelta dell'utente
         switch (scelta) {
             case 1:
@@ -54,6 +50,7 @@ public class LoStadio {
                 }
                 System.out.println("Minimo numero di spettatori: " + minSpettatori);
                 break;
+                
             case 2:
                 int maxSpettatori = Integer.MAX_VALUE;
                 for (int spettatori : sabato) {
@@ -74,7 +71,7 @@ public class LoStadio {
                 System.out.println("Massimo incasso: " + maxIncasso + " euro");
                 break;
             case 4:
-                int minIncasso = Integer.MIN_VALUE;
+                int minIncasso = Integer.MAX_VALUE;
                 for (int i = 0; i < sabato.size(); i++) {
                     int incasso = (sabato.get(i) + domenica.get(i)) * 10; // Assumiamo che il prezzo del biglietto sia 10 euro
                     if (incasso < minIncasso) {
@@ -88,4 +85,3 @@ public class LoStadio {
         }
     }
 }
-
