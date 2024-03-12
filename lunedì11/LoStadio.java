@@ -106,6 +106,7 @@ public class LoStadio {
             default:
                 System.out.println("Scelta non valida.");
         }
+        scanner.close();
         
     }
 }
