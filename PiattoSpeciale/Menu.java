@@ -21,11 +21,13 @@ public class Menu {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        //creo l'oggetto nuovoPiatto
         PiattoSpeciale nuovoPiatto = new PiattoSpeciale("Semola", "Cereali", null, null, null);
+        //ciclo per vedere il menu panini
         while (true) {
             System.out.println("Vuoi vedere il menu panini? (si/no)");
             String risposta = scanner.nextLine().toLowerCase();
-            if (risposta.equals("si")) {
+            if (risposta.equals("si")) {                              //aggiungere inserimento manuale
                 menuStatic(nuovoPiatto.getPanino1(), nuovoPiatto.getPanino2());
                 break;
             } else if (risposta.equals("no")) {
@@ -34,13 +36,14 @@ public class Menu {
                 System.out.println("Risposta non valida. Inserisci 'si' o 'no'.");
             }
         }
-
+        //ciclo per vedere il menu ingredienti
         while (true) {
             System.out.println("Vuoi vedere il menu con gli ingredienti? (si/no)");
             String risposta = scanner.nextLine().toLowerCase();
-
+            
             if (risposta.equals("si")) {
                 menuPublic(nuovoPiatto.ingrediente1, nuovoPiatto.ingrediente2, nuovoPiatto.ingrediente3);
+                //aggiungere inserimento indicizzato
                 break;
             } else if (risposta.equals("no")) {
                 break;
