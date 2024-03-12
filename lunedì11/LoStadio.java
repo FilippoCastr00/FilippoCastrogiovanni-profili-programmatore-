@@ -5,13 +5,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LoStadio {
-    static void menu(){
+    //creo un metodo menu
+     static void menu1(){
      System.out.println("Scegli un'opzione:");
      System.out.println("1. Minimo numero di spettatori");
      System.out.println("2. Massimo numero di spettatori");
      System.out.println("3. Massimo incasso");
      System.out.println("4. Minimo incasso");
+     System.out.println("5. Persone sabato");
+     System.out.println("6. Persone domenica");
      System.out.print("Scelta: ");
+    }
+    static void menu2(){
+        System.out.println("Scegli un'opzione:");
+        System.out.println("1. spettatori sabato");
+        System.out.println("2. spettatori domenica");
+        System.out.print("Scelta: ");
+
     }
     public static void main(String[] args) {
         Random rand = new Random();
@@ -19,7 +29,7 @@ public class LoStadio {
 
         System.out.print("Inserisci il numero casuale di weekend da 0 a 10: ");
         int numeroWeekend = scanner.nextInt();
-        menu();
+        menu1();
 
         ArrayList<Integer> sabato = new ArrayList<>();
         ArrayList<Integer> domenica = new ArrayList<>();
@@ -31,12 +41,13 @@ public class LoStadio {
             int personeSabato = rand.nextInt(100) + 1; // Genera un numero casuale di persone per sabato tra 1 e 100
             int personeDomenica = rand.nextInt(100) + 1; // Genera un numero casuale di persone per domenica tra 1 e 100
             
-            // Popoliamo gli ArrayList
+            // Riempio gli ArrayList
             sabato.add(personeSabato);
             domenica.add(personeDomenica);
             id.add(counter + 1);
             counter++;
         }
+       
       
         int scelta = scanner.nextInt();
         // Calcolo e stampo dei risultati in base alla scelta dell'utente
@@ -50,6 +61,7 @@ public class LoStadio {
                 }
                 System.out.println("Minimo numero di spettatori: " + minSpettatori);
                 break;
+                
                 
             case 2:
                 int maxSpettatori = Integer.MAX_VALUE;
@@ -79,9 +91,21 @@ public class LoStadio {
                     }
                 }
                 System.out.println("Minimo incasso: " + minIncasso + " euro");
+                
+                break;
+            case 5:
+                for(int i = 0; i < sabato.size(); i++){
+                }  
+                System.out.println("Hai scelto persone sabato: " + sabato);
+                break;
+            case 6:
+                for(int i = 0; i < sabato.size(); i++){
+                }  
+                System.out.println("Hai scelto persone domenica: " + domenica);
                 break;
             default:
                 System.out.println("Scelta non valida.");
         }
+        
     }
 }
