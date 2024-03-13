@@ -5,6 +5,8 @@ public class ResocontoDigitale {
         DispositivoElettronico generale = new DispositivoElettronico();
         DispositivoElettronico smartphone = new Smartphone();
         DispositivoElettronico tablet = new Tablet();
+        generale.avvioApp("App generale");
         smartphone.avvioApp("App smartphone");
+        tablet.avvioApp("App tablet");
     }
 }
