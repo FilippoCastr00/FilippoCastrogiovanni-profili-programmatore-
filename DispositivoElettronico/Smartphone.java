@@ -11,7 +11,8 @@ public class Smartphone extends DispositivoElettronico{
     // Metodo per avviare un'applicazione su uno smartphone
     @Override
     public void avvioApp(String nomeApp) {
-        super.avvioApp(nomeApp); // Chiamata al metodo della classe madre       
+        super.avvioApp(nomeApp); // Chiamata al metodo della classe madre
+        visualizzazioneLogin();       
 
     }
      
@@ -92,6 +93,10 @@ public class Smartphone extends DispositivoElettronico{
             }
         }
         return -1;
+    }
+    private static void visualizzazioneLogin(){
+        displayMenu();
+
     }
    
 }
