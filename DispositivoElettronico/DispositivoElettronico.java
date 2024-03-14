@@ -9,7 +9,8 @@ public class DispositivoElettronico {
     }
     //Test 
     public static void main(String[] args) {
-        DispositivoElettronico dispositivo = new DispositivoElettronico();
-        dispositivo.avvioApp("App generica");
+        DispositivoElettronico smartphone = new Smartphone();
+        smartphone.avvioApp("App smartphone");
+        
     }
 }

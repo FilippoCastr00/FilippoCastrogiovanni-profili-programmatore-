@@ -8,20 +8,21 @@ public class Smartphone extends DispositivoElettronico{
     private static Scanner scanner = new Scanner(System.in);
     private static int userCount = 0;
     
+    // Metodo per avviare un'applicazione su uno smartphone
     @Override
     public void avvioApp(String nomeApp) {
-        System.out.println("Hai avviato l'app" + nomeApp + " " + "da smartphone");
-        super.avvioApp(nomeApp);  //chiamo il costruttore della madre
-        displayMenu();
+        super.avvioApp(nomeApp); // Chiamata al metodo della classe madre       
 
     }
      
     public static void main(String[] args) {
+        DispositivoElettronico smartphone = new Smartphone();
+        smartphone.avvioApp("App smartphone");
         displayMenu();
     }
     
     //metodo che mostra il menu
-    private static void displayMenu() {
+    public static void displayMenu() {
         System.out.println("Benvenuto!");
         System.out.println("1. Registrati");
         System.out.println("2. Login");
@@ -51,9 +52,9 @@ public class Smartphone extends DispositivoElettronico{
     private static void registerUser() {
         System.out.println("Registrazione:");
         System.out.print("Nome utente: ");
-        String username = scanner.nextLine();
+        String username = scanner.nextLine().toLowerCase();
         System.out.print("Password: ");
-        String password = scanner.nextLine();
+        String password = scanner.nextLine().toLowerCase();
 
         //primo controllo per verificare l'esistenza dello user
         if (findUser(username) != -1) {
@@ -71,9 +72,9 @@ public class Smartphone extends DispositivoElettronico{
     private static void loginUser() {
         System.out.println("Login:");
         System.out.print("Nome utente: ");
-        String username = scanner.nextLine();
+        String username = scanner.nextLine().toLowerCase();
         System.out.print("Password: ");
-        String password = scanner.nextLine();
+        String password = scanner.nextLine().toLowerCase();
      
         int index = findUser(username);
         if (index != -1 && passwords[index].equals(password)) {         
@@ -83,7 +84,7 @@ public class Smartphone extends DispositivoElettronico{
         }
         displayMenu();
     }
-
+       //metodo che trova l'esistenza dello user
     private static int findUser(String username) {
         for (int i = 0; i < userCount; i++) {
             if (usernames[i].equals(username)) {
